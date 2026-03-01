@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\Rules\Enum;
 use App\Enums\TaskStatus;
+use App\Models\Task;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Enum;
 
 class TaskController extends Controller
 {

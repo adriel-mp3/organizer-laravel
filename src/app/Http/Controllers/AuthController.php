@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -26,7 +26,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credenciais inválidas.'
+            'email' => 'Credenciais inválidas.',
         ])->onlyInput('email');
     }
 
@@ -36,7 +36,7 @@ class AuthController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/login');
     }
 }

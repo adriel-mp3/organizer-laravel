@@ -17,7 +17,7 @@ class Task extends Model
     ];
 
     protected $casts = [
-      'status' => TaskStatus::class,
+        'status' => TaskStatus::class,
     ];
 
     public function user()

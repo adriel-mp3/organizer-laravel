@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
-use App\Models\Task;
 use App\Enums\TaskStatus;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TaskFeatureTest extends TestCase
 {
@@ -53,7 +53,7 @@ class TaskFeatureTest extends TestCase
         $intruder = User::factory()->create();
 
         $task = Task::factory()->create([
-            'user_id' => $owner->id
+            'user_id' => $owner->id,
         ]);
 
         $response = $this->actingAs($intruder)
@@ -67,7 +67,7 @@ class TaskFeatureTest extends TestCase
         $user = User::factory()->create();
 
         $task = Task::factory()->create([
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]);
 
         $response = $this->actingAs($user)

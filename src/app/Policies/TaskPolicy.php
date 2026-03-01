@@ -11,6 +11,7 @@ class TaskPolicy
     {
         return true;
     }
+
     public function view(User $user, Task $task): bool
     {
         return $task->user_id === $user->id;
@@ -25,4 +26,4 @@ class TaskPolicy
     {
         return $task->user_id === $user->id;
     }
-}   
+}

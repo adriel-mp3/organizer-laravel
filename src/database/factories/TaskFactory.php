@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Enums\TaskStatus;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Enums\TaskStatus;
 
 class TaskFactory extends Factory
 {
@@ -23,21 +23,21 @@ class TaskFactory extends Factory
 
     public function completed(): static
     {
-        return $this->state(fn() => [
+        return $this->state(fn () => [
             'status' => TaskStatus::Completed->value,
         ]);
     }
 
     public function inProgress(): static
     {
-        return $this->state(fn() => [
+        return $this->state(fn () => [
             'status' => TaskStatus::InProgress->value,
         ]);
     }
 
     public function peding(): static
     {
-        return $this->state(fn() => [
+        return $this->state(fn () => [
             'status' => TaskStatus::Pending->value,
         ]);
     }

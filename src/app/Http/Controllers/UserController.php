@@ -14,6 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(10);
+
         return view('users.index', compact('users'));
     }
 
@@ -33,13 +34,13 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed'
+            'password' => 'required|min:6|confirmed',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
         ]);
 
         return redirect()->route('users.index')
@@ -69,7 +70,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'email' => 'required|email|unique:users,email,'.$user->id,
         ]);
 
         $user->update([
