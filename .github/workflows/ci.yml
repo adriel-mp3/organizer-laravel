@@ -29,3 +29,6 @@ jobs:
 
       - name: Rodar Larastan
         run: composer analyse
+
+      - name: Executar verificação de estilo (linter)
+        run: composer lint
